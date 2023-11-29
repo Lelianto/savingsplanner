@@ -16,7 +16,7 @@ const AssetsRecommendation = () => {
   };
   return (
     <Layout
-      title={`Rekomendasi ${params.id === "1" ? "Saham" : "Reksadana"}`}
+      title={`Rekomendasi ${params?.id === "1" ? "Saham" : "Reksadana"}`}
       back={back}
     >
       <div className="container mx-auto px-4 pt-8 relative min-h-screen">
