@@ -15,6 +15,10 @@ const config = {
         75: "75px",
         200: "200px",
       },
+      colors: {
+        "c-blue": "#1F94E6",
+        "c-violet": "#9E45C7",
+      },
       minHeight: {
         "1/2": "50vh",
         "2/3": "66vh",
