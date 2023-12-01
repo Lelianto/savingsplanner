@@ -9,7 +9,7 @@ const Profile = () => {
     router.push("/goal-settings/form");
   };
   const moveToJourney = () => {
-    router.push("/savings/journey");
+    router.push("/savings-journey");
   };
   return (
     <div className="container mx-auto px-4 pt-8 relative min-h-screen">
