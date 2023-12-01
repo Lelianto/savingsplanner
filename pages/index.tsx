@@ -8,6 +8,9 @@ const Profile = () => {
   const moveToForm = () => {
     router.push("/goal-settings/form");
   };
+  const moveToJourney = () => {
+    router.push("/savings/journey");
+  };
   return (
     <div className="container mx-auto px-4 pt-8 relative min-h-screen">
       <div className="flex">
@@ -32,6 +35,18 @@ const Profile = () => {
           <h2 className="font-semibold">
             <span className="text-c-blue">savings</span>
             <span className="text-c-violet">planner</span>
+          </h2>
+        </div>
+      </div>
+      <div className="mt-8">
+        <div
+          onClick={moveToJourney}
+          className="bg-white p-4 rounded-lg border-1"
+        >
+          <h2 className="font-semibold">
+            <span className="text-c-blue">savings</span>
+            <span className="text-c-violet">planner</span>{" "}
+            <span className="text-gray-300">after registration</span>
           </h2>
         </div>
       </div>

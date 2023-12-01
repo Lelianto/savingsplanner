@@ -1,3 +1,5 @@
+import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
 interface StockCardProps {
   emiten: string;
   name: string;
@@ -11,8 +13,22 @@ const StockCard: React.FC<StockCardProps> = ({
   price,
   returnPerYear,
 }) => {
+  const router = useRouter();
+  const onBuyStocks = () => {
+    Swal.fire({
+      icon: "success",
+      title: "Pembelian berhasil dilakukan",
+      showConfirmButton: false,
+      timer: 1500,
+    }).then(() => {
+      router.push("/savings-journey");
+    });
+  };
   return (
-    <div className="bg-white rounded overflow-hidden shadow-md my-2 flex flex-col">
+    <div
+      onClick={onBuyStocks}
+      className="bg-white rounded overflow-hidden shadow-md my-2 flex flex-col"
+    >
       <div className="flex bg-gray-200 p-2">
         <div className="flex-1 text-left">
           <div className="font-semibold">{emiten}</div>

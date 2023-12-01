@@ -4,7 +4,6 @@ import { HiCurrencyDollar } from "react-icons/hi2";
 import ProductsCard from "../../../components/ProductsCard";
 import { useRouter } from "next/navigation";
 import Layout from "../../../components/Layout";
-import { DoughnutChart } from "../../../components/Doughnut";
 
 const SummaryPage = () => {
   const router = useRouter();
@@ -19,7 +18,6 @@ const SummaryPage = () => {
   };
   return (
     <Layout title="Rekomendasi Investasi" back={back}>
-      <DoughnutChart />
       <div className="container mx-auto px-4 pt-8 relative min-h-screen">
         <div className="flex justify-center relative">
           <LuTimerReset className="text-200 text-green-400" />
