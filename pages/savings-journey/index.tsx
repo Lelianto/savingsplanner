@@ -15,7 +15,7 @@ const SavingsJourney = () => {
   if (typeof window !== "undefined") {
     localData = localStorage.getItem("item");
   }
-  const finData = JSON.parse(localData ?? "");
+  const finData = localData ? JSON.parse(localData) : null;
   return (
     <Layout title="Savings Journey" back={back}>
       <div className="container mx-auto px-4 pt-8 relative min-h-screen">
