@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@nextui-org/react";
 
@@ -30,11 +30,21 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
     }
   };
 
-  const handleDoneClick = () => {
-    // Handle submission logic here
+  const handleDoneClick = useCallback(() => {
+    const power = (answers[1] as unknown as number) / 12;
+    const ratio = 1.06 ** power;
+    const fv = (answers[0] as unknown as number) * ratio;
+
+    const divider = (1 + 0.052 / 12) ** 36 - 1;
+    const pmt = (fv * 0.052) / 12 / divider;
+
+    localStorage.setItem(
+      "item",
+      JSON.stringify({ fv, pmt, month: answers[1] })
+    );
+
     router.push("/goal-settings/summary");
-    console.log("Answers:", answers);
-  };
+  }, [answers, router]);
 
   const calculateProgress = () =>
     ((currentQuestion + 1) / questions.length) * 100;

@@ -5,6 +5,19 @@ import ProductsCard from "../../../components/ProductsCard";
 import { useRouter } from "next/navigation";
 import Layout from "../../../components/Layout";
 
+export const formatThousands = (number: number): string => {
+  try {
+    // Convert the number to a string and then use regex to add commas as thousand separators
+    const formattedNumber = number
+      .toFixed(0)
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return formattedNumber;
+  } catch (error) {
+    // Handle the case where the input is not a valid number
+    return "Invalid input";
+  }
+};
+
 const SummaryPage = () => {
   const router = useRouter();
   const goToSaham = () => {
@@ -16,6 +29,8 @@ const SummaryPage = () => {
   const back = () => {
     router.back();
   };
+  const localData = localStorage.getItem("item");
+  const finData = JSON.parse(localData ?? "");
   return (
     <Layout title="Rekomendasi Investasi" back={back}>
       <div className="container mx-auto px-4 pt-8 relative min-h-screen">
@@ -24,10 +39,10 @@ const SummaryPage = () => {
           <HiCurrencyDollar className="text-75 absolute bottom-0 right-20 bg-green-400 rounded-full text-white" />
         </div>
         <div className="text-center my-4">
-          Rutin nabung Rpxxx.xxx.xxx tiap bulan <br />
-          untuk mencapai goal kamu dalam x tahun <br />
-          di salah satu produk yang memiliki <br />
-          rata-rata return x% setahun
+          Rutin nabung Rp{formatThousands(finData.pmt)} tiap bulan <br />
+          untuk mencapai goal kamu dalam {finData.month} bulan di salah satu
+          produk yang memiliki <br />
+          rata-rata return 5.2% setahun
         </div>
         <div className="font-semibold mb-4">Rekomendasi Portofolio Kamu</div>
         <div className="mb-4">Jenis Produk</div>
