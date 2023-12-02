@@ -42,8 +42,8 @@ const SummaryPage = () => {
           <HiCurrencyDollar className="text-75 absolute bottom-0 right-20 bg-green-400 rounded-full text-white" />
         </div>
         <div className="text-center my-4">
-          Rutin nabung Rp{formatThousands(finData.pmt)} tiap bulan <br />
-          untuk mencapai goal kamu dalam {finData.month} bulan di salah satu
+          Rutin nabung Rp{formatThousands(finData?.pmt)} tiap bulan <br />
+          untuk mencapai goal kamu dalam {finData?.month} bulan di salah satu
           produk yang memiliki <br />
           rata-rata return 5.2% setahun
         </div>

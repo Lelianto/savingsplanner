@@ -20,10 +20,10 @@ const SavingsJourney = () => {
     <Layout title="Savings Journey" back={back}>
       <div className="container mx-auto px-4 pt-8 relative min-h-screen">
         <div className="text-sm mb-1">
-          Goal Rp{formatThousands(finData.pmt * finData.month)}
+          Goal Rp{formatThousands(finData?.pmt * finData?.month)}
         </div>
         <div className="text-sm mb-4">
-          Rutin nabung Rp{formatThousands(finData.pmt)}
+          Rutin nabung Rp{formatThousands(finData?.pmt)}
         </div>
         <div className="flex justify-center w-full">
           <div className="w-2/3">
