@@ -29,7 +29,10 @@ const SummaryPage = () => {
   const back = () => {
     router.back();
   };
-  const localData = localStorage.getItem("item");
+  let localData = null;
+  if (typeof window !== "undefined") {
+    localData = localStorage.getItem("item");
+  }
   const finData = JSON.parse(localData ?? "");
   return (
     <Layout title="Rekomendasi Investasi" back={back}>

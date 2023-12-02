@@ -38,10 +38,12 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
     const divider = (1 + 0.052 / 12) ** 36 - 1;
     const pmt = (fv * 0.052) / 12 / divider;
 
-    localStorage.setItem(
-      "item",
-      JSON.stringify({ fv, pmt, month: answers[1] })
-    );
+    if (typeof window !== "undefined") {
+      localStorage.setItem(
+        "item",
+        JSON.stringify({ fv, pmt, month: answers[1] })
+      );
+    }
 
     router.push("/goal-settings/summary");
   }, [answers, router]);

@@ -11,7 +11,10 @@ const SavingsJourney = () => {
   const goToLeaderboard = () => {
     router.push("/leaderboard");
   };
-  const localData = localStorage.getItem("item");
+  let localData = null;
+  if (typeof window !== "undefined") {
+    localData = localStorage.getItem("item");
+  }
   const finData = JSON.parse(localData ?? "");
   return (
     <Layout title="Savings Journey" back={back}>
