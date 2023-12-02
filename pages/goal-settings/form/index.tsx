@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 
 const questions = [
   "Berapa nilai kebutuhan masa depan yang ingin kamu siapkan?",
-  "Kapan kebutuhan ini akan dicairkan?",
+  "Dalam berapa bulan kebutuhan ini akan dicairkan?",
 ];
 
 const GoalQuestionForm: React.FC = () => {
